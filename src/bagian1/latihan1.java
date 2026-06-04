@@ -8,7 +8,7 @@ package bagian1;
  *
  * @author LENOVO
  */
-public class array { 
+public class latihan1 { 
     public static void main(String[] args) {
         int[] nilai = {80, 75, 90, 60, 85};
 
