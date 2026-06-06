@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package bagian1;
+package bagian1.array;
 
 /**
  *
  * @author LENOVO
  */
-public class latihan1 { 
+public class latihan2 { 
     public static void main(String[] args) {
         int[] nilai = {80, 75, 90, 60, 85};
 
@@ -30,3 +30,4 @@ public class latihan1 {
         System.out.println("Rata-rata  : " + rata);
     }
 }
+
