@@ -1,31 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package bagian3.perpustakaan;
 
-/**
- *
- * @author LENOVO
- */
-public class Mainperpustakaan {
+public class MainPerpustakaan {
     public static void main(String[] args) {
-        // Membuat objek pengelola
+       
         Perpustakaan perpus = new Perpustakaan();
 
-        // Membuat objek Buku lalu memasukkannya ke koleksi
-        perpus.tambahBuku(new buku("Laskar Pelangi", "Andrea Hirata"));
-        perpus.tambahBuku(new buku("Bumi Manusia", "Pramoedya"));
-        perpus.tambahBuku(new buku("Negeri 5 Menara", "Ahmad Fuadi"));
+      
+        perpus.tambahBuku(new buku("Laskar Pelangi", "Andrea Hirata", 2005));
+        perpus.tambahBuku(new buku("Bumi Manusia", "Pramoedya", 1980));
+        perpus.tambahBuku(new buku("Negeri 5 Menara", "Ahmad Fuadi", 2009));
+        perpus.tambahBuku(new buku("Sang Pemimpi", "Andrea Hirata", 2006)); // Untuk tes nomor 3
 
+  
         perpus.tampilkanKoleksi();
-
         System.out.println();
+
+      
         perpus.pinjamBuku("Bumi Manusia");
-        perpus.pinjamBuku("Bumi Manusia"); // coba pinjam kedua kali
-
         System.out.println();
         perpus.tampilkanKoleksi();
-        System.out.println("Buku tersedia: " + perpus.jumlahTersedia());
+        System.out.println();
+
+      
+        System.out.println("--- Pengujian Nomor 1 (Kembalikan Buku) ---");
+        perpus.kembalikanBuku("Bumi Manusia");
+        System.out.println();
+
+       
+        System.out.println("--- Pengujian Nomor 3 (Cari Penulis) ---");
+        perpus.cariPenulis("Andrea Hirata");
+        System.out.println();
+
+      
+        perpus.tampilkanKoleksi();
+        System.out.println("Buku tersedia saat ini: " + perpus.jumlahTersedia());
     }
 }
