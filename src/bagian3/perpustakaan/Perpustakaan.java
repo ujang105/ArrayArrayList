@@ -3,73 +3,69 @@ package bagian3.perpustakaan;
 import java.util.ArrayList;
 
 public class Perpustakaan {
-    private ArrayList<buku> koleksi = new ArrayList<>();
+    private ArrayList<Buku> koleksi = new ArrayList<>();
 
-    public void tambahBuku(buku buku) {
+    public void tambahBuku(Buku buku) {
         koleksi.add(buku);
     }
 
     public void tampilkanKoleksi() {
         System.out.println("== Koleksi Perpustakaan ==");
         for (int i = 0; i < koleksi.size(); i++) {
-            buku b = koleksi.get(i);
+            Buku b = koleksi.get(i);
             System.out.println((i + 1) + ". " + b.info());
         }
     }
 
     public void pinjamBuku(String judul) {
-        for (buku b : koleksi) {
+        for (Buku b : koleksi) {
             if (b.getJudul().equalsIgnoreCase(judul)) {
                 if (b.isDipinjam()) {
-                    System.out.println(judul + " sedang dipinjam.");
+                    System.out.println("Buku \"" + judul + "\" sedang dipinjam.");
                 } else {
                     b.setDipinjam(true);
-                    System.out.println(judul + " berhasil dipinjam.");
+                    System.out.println("Buku \"" + judul + "\" berhasil dipinjam.");
                 }
                 return;
             }
         }
-        System.out.println("Buku " + judul + " tidak ditemukan.");
-    }
-
-    public int jumlahTersedia() {
-        int jumlah = 0;
-        for (buku b : koleksi) {
-            if (!b.isDipinjam()) {
-                jumlah++;
-            }
-        }
-        return jumlah;
+        System.out.println("Buku \"" + judul + "\" tidak ditemukan.");
     }
 
   
     public void kembalikanBuku(String judul) {
-        for (buku b : koleksi) {
+        for (Buku b : koleksi) {
             if (b.getJudul().equalsIgnoreCase(judul)) {
-                if (b.isDipinjam()) {
-                    b.setDipinjam(false);
-                    System.out.println(judul + " telah dikembalikan.");
-                } else {
-                    System.out.println(judul + " memang tidak sedang dipinjam.");
-                }
+                b.setDipinjam(false);
+                System.out.println("Buku \"" + judul + "\" telah dikembalikan.");
                 return;
             }
         }
-        System.out.println("Buku " + judul + " tidak ditemukan.");
+        System.out.println("Buku \"" + judul + "\" tidak ditemukan.");
     }
 
-    
+  
     public void cariPenulis(String penulis) {
-        System.out.println("== Hasil Pencarian Buku Karya: " + penulis + " ==");
+        System.out.println("== Hasil Pencarian Penulis: " + penulis + " ==");
         boolean ditemukan = false;
-        for (buku b : koleksi) {
+        for (Buku b : koleksi) {
             if (b.getPenulis().equalsIgnoreCase(penulis)) {
                 System.out.println("- " + b.info());
                 ditemukan = true;
             }
         }
         if (!ditemukan) {
-            System.out.println("Tidak ada buku yang ditemukan dari penulis: " + penulis);
+            System.out.println("Tidak ada buku karya " + penulis);
         }
+    }
+
+    public int jumlahTersedia() {
+        int jumlah = 0;
+        for (Buku b : koleksi) {
+            if (!b.isDipinjam()) {
+                jumlah++;
+            }
+        }
+        return jumlah;
     }
 }

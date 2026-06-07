@@ -1,23 +1,19 @@
 package bagian3.perpustakaan;
 
-public class buku {
-    
+public class Buku {
     private String judul;
     private String penulis;
     private boolean dipinjam;
-    
-   
-    private int tahunTerbit;
+    private int tahunTerbit; 
 
-    
-    public buku(String judul, String penulis, int tahunTerbit) {
+   
+    public Buku(String judul, String penulis, int tahunTerbit) {
         this.judul = judul;
         this.penulis = penulis;
         this.tahunTerbit = tahunTerbit;
-        this.dipinjam = false; // Buku baru dianggap tersedia
+        this.dipinjam = false;
     }
 
-    
     public String getJudul() {
         return judul;
     }
@@ -26,22 +22,21 @@ public class buku {
         return penulis;
     }
 
-    
-    public int getTahunTerbit() {
-        return tahunTerbit;
-    }
-
     public boolean isDipinjam() {
         return dipinjam;
+    }
+
+    public int getTahunTerbit() {
+        return tahunTerbit;
     }
 
     public void setDipinjam(boolean dipinjam) {
         this.dipinjam = dipinjam;
     }
 
-    
     public String info() {
         String status = dipinjam ? "Dipinjam" : "Tersedia";
+      
         return judul + " oleh " + penulis + " (" + tahunTerbit + ") [" + status + "]";
     }
 }
